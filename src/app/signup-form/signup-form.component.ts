@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { PasswordStrength } from '../models/password-strength.type';
-import { fromEvent, map, Observable, tap } from 'rxjs';
+import { fromEvent, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signup-form',
@@ -18,12 +18,10 @@ export class SignupFormComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.passwordStrength = fromEvent(this.passwordInput.nativeElement, 'input').pipe(
       map(event => {
-        console.log(event)
         const passwordInput = event.target as HTMLInputElement
         return passwordInput.value
       }),
       map(password => SignupFormComponent.judgePasswordStrength(password)),
-      tap(x => console.log(x, 'str'))
     )
   }
 
