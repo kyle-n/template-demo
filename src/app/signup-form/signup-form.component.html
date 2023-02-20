@@ -1,0 +1,23 @@
+<div>
+  <label for="username-input">Username</label>
+  <input #username type="text" id="username-input">
+</div>
+
+<div>
+  <label for="password-input">Password</label>
+  <input #password type="password" id="password-input">
+</div>
+
+<p>Passwords should use at least:</p>
+<ul>
+  <li>1 capital letter</li>
+  <li>1 number</li>
+  <li>6 characters</li>
+</ul>
+
+<div id="indicator-container">
+  <p>Strength:</p>
+  <app-password-strength-indicator
+    [passwordStrength]="passwordStrength | async">
+  </app-password-strength-indicator>
+</div>
