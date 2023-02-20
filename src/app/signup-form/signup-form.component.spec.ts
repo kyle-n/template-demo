@@ -44,7 +44,7 @@ describe('SignupFormComponent', () => {
   function passwordStrength(): PasswordStrength {
     const passwordStrengthDisplayDiv = fixture.debugElement.query(By.css('#password-strength'))
       .nativeElement as HTMLDivElement;
-    const textContent = passwordStrengthDisplayDiv.textContent?.trim() ?? ''
+    const textContent = passwordStrengthDisplayDiv.textContent?.trim() ?? '0'
     return Number(textContent) as PasswordStrength
   }
 
